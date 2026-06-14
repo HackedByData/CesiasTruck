@@ -1,0 +1,36 @@
+---
+/**
+ * Input — text field for catering / contact forms. Cream-paper styling
+ * with a marigold focus ring. Set `as="textarea"` for multi-line.
+ * (Not used on the marketing homepage — orders go by phone/text — but
+ * part of the design-system library and shown on /design-system.)
+ */
+interface Props {
+  label?: string;
+  hint?: string;
+  error?: string;
+  id?: string;
+  as?: 'input' | 'textarea';
+  class?: string;
+  [key: string]: any;
+}
+const { label, hint, error, id, as = 'input', class: cls = '', ...rest } = Astro.props as Props;
+const inputId = id || (label ? 'f-' + label.toLowerCase().replace(/\s+/g, '-') : undefined);
+const Tag = as === 'textarea' ? 'textarea' : 'input';
+const hintId = (hint || error) && inputId ? `${inputId}-hint` : undefined;
+---
+<div class:list={['field', cls]}>
+  {label && <label class="field__label" for={inputId}>{label}</label>}
+  <Tag
+    id={inputId}
+    class="field__control"
+    aria-invalid={error ? 'true' : undefined}
+    aria-describedby={hintId}
+    {...rest}
+  />
+  {(hint || error) && (
+    <span id={hintId} class:list={['field__hint', error && 'field__hint--error']}>
+      {error || hint}
+    </span>
+  )}
+</div>

@@ -1,0 +1,14 @@
+/* ============================================================
+   Cesia's Truck — Fonts (standalone token file)
+   Substitutes for the truck's hand-painted lettering:
+     · Anton          → big condensed menu/display headers
+     · Yellowtail     → the flowing brush script of the logo
+     · Barlow         → clean UI body + paragraphs
+     · Barlow Cond.   → menu rows, labels, prices (condensed)
+
+   NOTE: The website itself loads these via <link rel="preconnect">
+   + a stylesheet <link> in the document <head> (faster than @import).
+   This @import exists so the CSS token bundle is self-contained when
+   a consumer links the design system on its own.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Yellowtail&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap');

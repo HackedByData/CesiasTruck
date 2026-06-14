@@ -1,0 +1,119 @@
+---
+import { ui, categories, tags } from '../../data/content.js';
+import { images } from '../../data/images.js';
+import SectionHeading from '../ui/SectionHeading.astro';
+import DishCard from '../ui/DishCard.astro';
+import MenuRow from '../ui/MenuRow.astro';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+
+const en = ui.en;
+const money = (n: number) => '$' + n.toFixed(2);
+const TONE = { keto: 'char', veg: 'lime', spicy: 'chile', especial: 'marigold' } as const;
+
+const byId = Object.fromEntries(categories.flatMap((c) => c.items).map((i) => [i.id, i]));
+const featured = [
+  { id: 'quesatacos', img: 'quesatacos' },
+  { id: 'birriapizza', img: 'pizza' },
+  { id: 'cesiabox', img: 'box' },
+];
+---
+<section class="section section--paper" id="menu">
+  <div class="container">
+    <div class="section__head">
+      <SectionHeading eyebrowKey="menu.eyebrow" scriptKey="menu.script" titleKey="menu.title" />
+      <p class="section__sub" data-i18n="menu.sub">{en['menu.sub']}</p>
+    </div>
+
+    <!-- Featured photo cards -->
+    <div class="dish-grid">
+      {
+        featured.map(({ id, img }) => {
+          const it = byId[id];
+          const tag = it.tag ? tags[it.tag as keyof typeof tags] : null;
+          return (
+            <DishCard
+              image={images[img as keyof typeof images]}
+              alt={it.name}
+              name={it.name}
+              price={money(it.price)}
+              description={it.desc.en}
+              descEn={it.desc.en}
+              descEs={it.desc.es}
+            >
+              {tag && (
+                <Badge
+                  slot="badge"
+                  tone={TONE[it.tag as keyof typeof TONE]}
+                  solid={it.tag === 'spicy'}
+                  data-en={tag.en}
+                  data-es={tag.es}
+                >
+                  {tag.en}
+                </Badge>
+              )}
+              <Button slot="action" variant="primary" size="sm" block data-add={it.id}>
+                <span data-i18n="menu.add">{en['menu.add']}</span>
+              </Button>
+            </DishCard>
+          );
+        })
+      }
+    </div>
+
+    <!-- The chalkboard board -->
+    <div class="board">
+      <div class="board__tabs" role="tablist" aria-label="Menu categories">
+        {
+          categories.map((c, i) => (
+            <button
+              class="board__tab"
+              type="button"
+              role="tab"
+              data-board-tab={c.id}
+              aria-selected={i === 0 ? 'true' : 'false'}
+              data-en={c.label.en}
+              data-es={c.label.es}
+            >
+              {c.label.en}
+            </button>
+          ))
+        }
+      </div>
+
+      {
+        categories.map((c, i) => (
+          <div class="board__panel" data-board-panel={c.id} data-active={i === 0 ? 'true' : 'false'} role="tabpanel">
+            <div class="board__rows">
+              {c.items.map((it) => {
+                const tag = it.tag ? tags[it.tag as keyof typeof tags] : null;
+                return (
+                  <button class="board__row" type="button" data-add={it.id} aria-label={`Add ${it.name}`}>
+                    <MenuRow name={it.name} price={money(it.price)} onBoard>
+                      {tag && (
+                        <Badge
+                          slot="badge"
+                          tone={TONE[it.tag as keyof typeof TONE]}
+                          solid={it.tag === 'spicy'}
+                          data-en={tag.en}
+                          data-es={tag.es}
+                        >
+                          {tag.en}
+                        </Badge>
+                      )}
+                      {it.desc.en && (
+                        <span slot="note" class="menu-row__note" data-en={it.desc.en} data-es={it.desc.es}>
+                          {it.desc.en}
+                        </span>
+                      )}
+                    </MenuRow>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

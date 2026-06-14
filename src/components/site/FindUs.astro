@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets';
+import { ui, site, hours } from '../../data/content.js';
+import { images } from '../../data/images.js';
+import SectionHeading from '../ui/SectionHeading.astro';
+import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
+const en = ui.en;
+---
+<section class="section section--board" id="find">
+  <div class="container split">
+    <div>
+      <SectionHeading eyebrowKey="find.eyebrow" scriptKey="find.script" titleKey="find.title" align="left" onBoard />
+      <p class="story__lead" style="color: var(--tortilla-300); margin: 20px 0 24px" data-i18n="find.lead">{en['find.lead']}</p>
+
+      <div class="today">
+        <div class="today__lbl">
+          <Icon name="navigation" size={16} />
+          <span data-i18n="loc.todayLabel">{en['loc.todayLabel']}</span>
+          <span class="today__saved eyebrow" id="today-saved" data-i18n="loc.saved">{en['loc.saved']}</span>
+        </div>
+        <div class="today__where" id="today-where" spellcheck="false">{site.address.full}</div>
+        <button class="today__edit" id="today-edit" type="button">
+          <Icon name="pencil" size={14} />
+          <span id="today-edit-label" data-i18n="loc.edit">{en['loc.edit']}</span>
+        </button>
+      </div>
+
+      <div class="find__cols">
+        <div>
+          <div class="find__group-title">
+            <Icon name="clock" size={18} />
+            <span data-i18n="find.hoursLabel">{en['find.hoursLabel']}</span>
+          </div>
+          {
+            hours.map((r) => (
+              <div class="hours-row" data-days={JSON.stringify(r.days)}>
+                <span class="hours-row__day" data-en={r.en} data-es={r.es}>{r.en}</span>
+                <span class="hours-row__time">{r.time}</span>
+              </div>
+            ))
+          }
+        </div>
+        <div>
+          <div class="find__group-title">
+            <Icon name="pin" size={18} />
+            <span data-i18n="find.whereLabel">{en['find.whereLabel']}</span>
+          </div>
+          <p class="find__addr">{site.address.street}<br />{site.address.region}</p>
+          <div class="find__group-title">
+            <Icon name="phone" size={18} />
+            <span data-i18n="find.phoneLabel">{en['find.phoneLabel']}</span>
+          </div>
+          <a class="find__phone" href={site.phoneHref}>{site.phoneDisplay}</a>
+        </div>
+      </div>
+
+      <div class="find__cta">
+        <Button variant="primary" size="md" href={site.mapsUrl} target="_blank" rel="noopener">
+          <Icon name="navigation" size={16} slot="icon-left" />
+          <span data-i18n="find.directions">{en['find.directions']}</span>
+        </Button>
+        <Button variant="secondary" size="md" onBoard href={site.phoneHref}>
+          <Icon name="phone" size={16} slot="icon-left" />
+          <span data-i18n="find.call">{en['find.call']}</span>
+        </Button>
+      </div>
+    </div>
+
+    <div class="find__media">
+      <Image
+        class="find__photo"
+        src={images.truck}
+        alt="The Cesia’s Truck food truck"
+        widths={[400, 640, 860]}
+        sizes="(min-width: 768px) 50vw, 90vw"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>

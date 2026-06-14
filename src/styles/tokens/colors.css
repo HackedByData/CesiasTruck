@@ -1,0 +1,109 @@
+/* ============================================================
+   Cesia's Truck — Color Tokens
+   Pulled straight from the truck: the marigold logo halo, the
+   black chalkboard menu, lime-green menu names, chile-red salsa,
+   and warm tortilla cream. Reach for the SEMANTIC aliases in
+   components; the raw scales exist so the system stays tunable.
+   ============================================================ */
+:root {
+  /* --- Marigold (primary brand — the logo halo) --- */
+  --marigold-50:  #FEF6E0;
+  --marigold-100: #FCE9B4;
+  --marigold-200: #F9D873;
+  --marigold-300: #F6C63D;
+  --marigold-400: #F4A91E;  /* core brand gold */
+  --marigold-500: #E2920C;
+  --marigold-600: #BE7407;
+  --marigold-700: #93590A;
+
+  /* --- Chalkboard (the menu board / the truck body) --- */
+  --char-900: #100D0A;  /* deepest board black */
+  --char-800: #15110D;  /* board base */
+  --char-700: #1F1A14;  /* raised board */
+  --char-600: #2C251D;  /* card on board */
+  --char-500: #3D352A;  /* hairline / border on dark */
+  --char-400: #6B5E4E;  /* muted text on dark */
+  --char-300: #978876;  /* faint text on dark */
+
+  /* --- Lime (menu item names, cilantro, fresh) --- */
+  --lime-100: #EEF3D6;
+  --lime-200: #D2E08F;
+  --lime-300: #B6CE54;
+  --lime-400: #9FBE3A;  /* menu green */
+  --lime-500: #82A027;
+  --lime-600: #647C1C;
+
+  /* --- Chile (salsa roja, consomé, heat) — the red the brand leans on --- */
+  --chile-100: #FBE0D8;
+  --chile-300: #E08267;
+  --chile-400: #C7492C;
+  --chile-500: #C0291A;  /* core salsa red — the logo red */
+  --chile-600: #8E1C11;
+  --chile-700: #5E140B;
+
+  /* --- Tortilla (warm neutrals / cream paper) --- */
+  --tortilla-50:  #FFFFFF;
+  --tortilla-100: #FBF3E2;  /* cream surface */
+  --tortilla-200: #F3E7CE;
+  --tortilla-300: #E6D4B0;
+  --tortilla-400: #C9B594;
+  --tortilla-500: #A89376;
+  --tortilla-600: #7C6A52;
+  --tortilla-700: #4D4234;
+
+  /* --- Radish (rare pop accent) --- */
+  --radish-400: #D14B6A;
+  --radish-500: #B83557;
+
+  /* ==========================================================
+     Semantic aliases — reach for these in components.
+     ========================================================== */
+
+  /* Brand */
+  --brand: var(--marigold-400);
+  --brand-strong: var(--marigold-500);
+  --brand-soft: var(--marigold-100);
+  --accent: var(--chile-500);        /* the salsa-red call-to-action */
+  --accent-strong: var(--chile-600);
+  --accent-deep: var(--chile-700);
+  --accent-fresh: var(--lime-400);
+
+  /* Surfaces — light (paper) world */
+  --surface-page: var(--tortilla-100);
+  --surface-card: var(--tortilla-50);
+  --surface-sunken: var(--tortilla-200);
+  --surface-raised: #FFFFFF;
+
+  /* Surfaces — dark (chalkboard) world */
+  --surface-board: var(--char-800);
+  --surface-board-raised: var(--char-700);
+  --surface-board-card: var(--char-600);
+
+  /* Text — on light */
+  --text-strong: var(--char-900);
+  --text-body: var(--tortilla-700);
+  --text-muted: var(--tortilla-600);
+  --text-faint: var(--tortilla-500);
+  --text-on-brand: var(--char-900);
+  --text-on-accent: #FFFFFF;
+
+  /* Text — on dark board */
+  --text-board-strong: var(--tortilla-100);
+  --text-board-body: var(--tortilla-300);
+  --text-board-muted: var(--char-300);
+  --text-board-name: var(--lime-400);    /* menu item names */
+  --text-board-price: var(--marigold-300);
+
+  /* Lines & borders */
+  --border-soft: var(--tortilla-300);
+  --border-strong: var(--tortilla-700);
+  --border-board: var(--char-500);
+
+  /* Status */
+  --success: var(--lime-500);
+  --danger: var(--chile-500);
+  --info: var(--marigold-500);
+
+  /* Focus ring */
+  --focus-ring: var(--marigold-400);
+}

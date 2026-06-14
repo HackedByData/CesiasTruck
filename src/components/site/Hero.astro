@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import { ui } from '../../data/content.js';
+import { images } from '../../data/images.js';
+import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
+const en = ui.en;
+---
+<section class="hero" id="top">
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <span class="hero__kicker reveal" data-i18n="hero.kicker">{en['hero.kicker']}</span>
+      <h1 class="hero__title reveal" style="--reveal-delay:80ms" data-i18n="hero.headline">{en['hero.headline']}</h1>
+      <p class="hero__lead reveal" style="--reveal-delay:160ms" data-i18n="hero.lead">{en['hero.lead']}</p>
+      <div class="hero__cta reveal" style="--reveal-delay:240ms">
+        <Button variant="primary" size="lg" href="#menu">
+          <span data-i18n="hero.seeMenu">{en['hero.seeMenu']}</span>
+          <Icon name="arrow" size={18} slot="icon-right" />
+        </Button>
+        <Button variant="secondary" size="lg" onBoard href="#find">
+          <Icon name="pin" size={18} slot="icon-left" />
+          <span data-i18n="hero.findTruck">{en['hero.findTruck']}</span>
+        </Button>
+      </div>
+    </div>
+
+    <div class="hero__media reveal" style="--reveal-delay:120ms">
+      <div class="hero__halo" aria-hidden="true"></div>
+      <Image
+        class="hero__photo"
+        src={images.birriatray}
+        alt="Birria tacos from Cesia’s Truck"
+        widths={[440, 700, 900]}
+        sizes="(min-width: 768px) 440px, 86vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="hero__price-card">
+        <span data-i18n="hero.featured">{en['hero.featured']}</span>
+        <span>$3.75</span>
+      </div>
+    </div>
+  </div>
+</section>

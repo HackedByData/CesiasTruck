@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import { ui, site } from '../../data/content.js';
+import { images } from '../../data/images.js';
+import LangToggle from '../ui/LangToggle.astro';
+import Icon from '../ui/Icon.astro';
+const en = ui.en;
+const navLinks: [string, keyof typeof en][] = [
+  ['#menu', 'nav.menu'],
+  ['#story', 'nav.story'],
+  ['#gallery', 'nav.gallery'],
+  ['#catering', 'nav.catering'],
+  ['#find', 'nav.find'],
+];
+---
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a class="brand" href="#top" aria-label={`${site.name} — home`}>
+      <Image class="brand__logo" src={images.logo} alt="" width={96} height={96} />
+      <span class="brand__name">{site.name}</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      {navLinks.map(([href, key]) => (
+        <a class="site-nav__link" href={href} data-i18n={key}>{en[key]}</a>
+      ))}
+    </nav>
+
+    <div class="site-header__actions">
+      <LangToggle onBoard />
+      <button class="order-btn" type="button" data-act="open-sheet" aria-haspopup="dialog">
+        <Icon name="bag" size={16} />
+        <span data-i18n="nav.order">{en['nav.order']}</span><span class="order-btn__count" id="order-count"></span>
+      </button>
+      <button
+        class="nav-toggle"
+        type="button"
+        data-nav-toggle
+        aria-label="Menu"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <Icon name="menu" class="nav-toggle__open" />
+        <Icon name="x" class="nav-toggle__close" />
+      </button>
+    </div>
+  </div>
+</header>

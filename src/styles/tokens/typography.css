@@ -1,0 +1,47 @@
+/* ============================================================
+   Cesia's Truck — Typography Tokens
+   Anton for shout-it-from-the-truck headers, Yellowtail for the
+   warm family signature, Barlow for everything you actually read,
+   Barlow Condensed for the chalkboard menu rows, labels & prices.
+   (Google Fonts substitutes for the truck's hand-painted lettering.)
+   ============================================================ */
+:root {
+  /* Families */
+  --font-display: 'Anton', 'Barlow Condensed', Impact, system-ui, sans-serif;
+  --font-script:  'Yellowtail', 'Brush Script MT', cursive;
+  --font-body:    'Barlow', system-ui, -apple-system, sans-serif;
+  --font-menu:    'Barlow Condensed', 'Barlow Semi Condensed', system-ui, sans-serif;
+
+  /* Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Fluid display sizes */
+  --text-hero:    clamp(3rem, 8vw, 6.5rem);
+  --text-display: clamp(2.4rem, 5.5vw, 4.25rem);
+  --text-h1: clamp(2rem, 4vw, 3rem);
+  --text-h2: clamp(1.6rem, 3vw, 2.25rem);
+  --text-h3: 1.5rem;
+  --text-h4: 1.25rem;
+
+  /* Body sizes */
+  --text-lg: 1.175rem;
+  --text-base: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+  --text-eyebrow: 0.8125rem;
+
+  /* Line heights */
+  --leading-tight: 1.02;   /* display */
+  --leading-snug: 1.2;
+  --leading-normal: 1.55;  /* body copy */
+  --leading-relaxed: 1.7;
+
+  /* Letter spacing */
+  --tracking-display: 0.01em;
+  --tracking-eyebrow: 0.22em;  /* uppercase labels */
+  --tracking-menu: 0.04em;
+  --tracking-tight: -0.01em;
+}

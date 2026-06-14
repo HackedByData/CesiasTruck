@@ -1,0 +1,27 @@
+---
+/**
+ * MenuRow — the signature chalkboard menu line: item name, dotted
+ * leader, price. Default is the light (cream) treatment with a salsa-red
+ * price; pass `onBoard` for the classic black board (lime name, gold price).
+ * Slots: `badge` (after the name) and `note` (description under the line).
+ */
+interface Props {
+  name: string;
+  price: string;
+  onBoard?: boolean;
+  class?: string;
+}
+const { name, price, onBoard = false, class: cls = '' } = Astro.props;
+const classes = ['menu-row', onBoard && 'menu-row--board', cls]
+  .filter(Boolean)
+  .join(' ');
+---
+<div class={classes}>
+  <div class="menu-row__line">
+    <span class="menu-row__name">{name}</span>
+    <slot name="badge" />
+    <span class="menu-row__dots" aria-hidden="true"></span>
+    <span class="menu-row__price">{price}</span>
+  </div>
+  <slot name="note" />
+</div>

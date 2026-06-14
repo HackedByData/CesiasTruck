@@ -1,0 +1,18 @@
+---
+/**
+ * Badge — small pill label for menu tags (Especial, Spicy, Keto, Veg).
+ * tone maps to the plate: marigold (house), chile (spicy), lime (fresh/veg),
+ * char (neutral, used for keto).
+ */
+interface Props {
+  tone?: 'marigold' | 'chile' | 'lime' | 'char';
+  solid?: boolean;
+  class?: string;
+  [key: string]: any;
+}
+const { tone = 'marigold', solid = false, class: cls = '', ...rest } = Astro.props;
+const classes = ['badge', `badge--${tone}`, solid && 'badge--solid', cls]
+  .filter(Boolean)
+  .join(' ');
+---
+<span class={classes} {...rest}><slot /></span>

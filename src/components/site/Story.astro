@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import { ui } from '../../data/content.js';
+import { images } from '../../data/images.js';
+import SectionHeading from '../ui/SectionHeading.astro';
+const en = ui.en;
+const stats: [keyof typeof en, keyof typeof en][] = [
+  ['story.stat1v', 'story.stat1'],
+  ['story.stat2v', 'story.stat2'],
+  ['story.stat3v', 'story.stat3'],
+];
+---
+<section class="section section--raised" id="story">
+  <div class="container split">
+    <div class="story__media">
+      <Image
+        class="story__photo"
+        src={images.consome}
+        alt="Consomé and birria tacos"
+        widths={[400, 640, 860]}
+        sizes="(min-width: 768px) 50vw, 90vw"
+        loading="lazy"
+      />
+      <div class="story__badge" data-i18n="story.script">{en['story.script']}</div>
+    </div>
+    <div>
+      <SectionHeading eyebrowKey="story.eyebrow" titleKey="story.title" align="left" />
+      <p class="story__lead" data-i18n="story.lead">{en['story.lead']}</p>
+      <div class="story__stats">
+        {stats.map(([vKey, lKey]) => (
+          <div class="stat">
+            <div class="stat__value" data-i18n={vKey}>{en[vKey]}</div>
+            <div class="stat__label" data-i18n={lKey}>{en[lKey]}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

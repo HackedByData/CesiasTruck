@@ -1,0 +1,20 @@
+---
+/**
+ * LangToggle — EN / ES segmented switch. Server-renders with EN active;
+ * the order island updates aria-pressed on load from the stored/detected
+ * language. Pass `onBoard` for the dark header.
+ */
+interface Props {
+  onBoard?: boolean;
+  class?: string;
+}
+const { onBoard = false, class: cls = '' } = Astro.props;
+---
+<div
+  class:list={['lang-toggle', onBoard && 'lang-toggle--board', cls]}
+  role="group"
+  aria-label="Language / Idioma"
+>
+  <button type="button" data-lang="en" aria-pressed="true">EN</button>
+  <button type="button" data-lang="es" aria-pressed="false">ES</button>
+</div>

@@ -1,0 +1,54 @@
+/* ============================================================
+   Cesia's Truck — Spacing, Radius, Shadow & Motion Tokens
+   4px base scale; warm-tinted soft shadows (sun on the truck);
+   quick, appetizing motion that never floats.
+   ============================================================ */
+:root {
+  /* Spacing scale (4px base) */
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4 */
+  --space-2: 0.5rem;    /* 8 */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.5rem;    /* 24 */
+  --space-6: 2rem;      /* 32 */
+  --space-7: 3rem;      /* 48 */
+  --space-8: 4rem;      /* 64 */
+  --space-9: 6rem;      /* 96 */
+  --space-10: 8rem;     /* 128 */
+
+  /* Container widths */
+  --container-sm: 640px;
+  --container-md: 880px;
+  --container-lg: 1140px;
+  --container-xl: 1320px;
+  /* The mobile-first marketing column — the site centers on this,
+     even on desktop, so it always feels like the truck's menu in hand. */
+  --content-max: 720px;
+
+  /* Radii — friendly but not bubbly. The brand leans hand-cut. */
+  --radius-xs: 4px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 34px;
+  --radius-pill: 999px;
+
+  /* Shadows — warm-tinted, soft, like sun on the truck */
+  --shadow-sm: 0 1px 3px rgba(40, 20, 8, 0.14);
+  --shadow-md: 0 8px 22px rgba(40, 20, 8, 0.16);
+  --shadow-lg: 0 18px 40px rgba(30, 12, 4, 0.30);
+  --shadow-board: 0 14px 40px rgba(0, 0, 0, 0.45);
+  /* Marigold lift used on hover for primary actions */
+  --shadow-brand: 0 8px 22px rgba(244, 169, 30, 0.38);
+
+  /* Motion — quick, appetizing, never floaty */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 130ms;
+  --dur-base: 220ms;
+  --dur-slow: 380ms;
+
+  /* Layout chrome */
+  --header-h: 72px;
+}

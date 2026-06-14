@@ -1,0 +1,25 @@
+{
+  "name": "cesias-truck",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Your favorite taco — bilingual (EN/ES) marketing + menu site for Cesia's Truck, a family-owned birria food truck in Irvine, CA.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "node test/island.test.mjs",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6.4.6",
+    "sharp": "^0.35.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "jsdom": "^29.1.1",
+    "typescript": "^6.0.3"
+  }
+}

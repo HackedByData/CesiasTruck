@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import { ui, site } from '../../data/content.js';
+import { images } from '../../data/images.js';
+import Icon from '../ui/Icon.astro';
+const en = ui.en;
+const meats = site.meats.join(' · ');
+---
+<footer class="site-footer">
+  <div class="container site-footer__bar">
+    <Image class="site-footer__logo" src={images.logo} alt={`${site.name} logo`} width={148} height={148} />
+    <div>
+      <div class="site-footer__tag" data-i18n="footer.tagline">{en['footer.tagline']}</div>
+      <div class="site-footer__family" data-i18n="footer.family">{en['footer.family']}</div>
+    </div>
+    <div class="site-footer__meta">
+      <a class="site-footer__phone" href={site.phoneHref}>
+        <Icon name="phone" />
+        {site.phoneDisplay}
+      </a>
+      <p class="site-footer__meats"><span data-i18n="footer.meatsLabel">{en['footer.meatsLabel']}</span>: <b>{meats}</b></p>
+      <div class="site-footer__rights">
+        <span data-i18n="footer.ptax">{en['footer.ptax']}</span> ·
+        <span data-i18n="footer.rights">{en['footer.rights']}</span> ·
+        <a href="/design-system">Design System</a>
+      </div>
+    </div>
+  </div>
+</footer>

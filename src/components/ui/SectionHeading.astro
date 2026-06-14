@@ -1,0 +1,43 @@
+---
+/**
+ * SectionHeading — the recurring section intro: a tracked eyebrow, an
+ * optional Yellowtail script kicker, and a big Anton display title.
+ * Pass i18n KEYS; EN renders server-side and the island swaps to ES.
+ */
+import { ui } from '../../data/content.js';
+interface Props {
+  eyebrowKey?: string;
+  scriptKey?: string;
+  titleKey?: string;
+  align?: 'center' | 'left';
+  onBoard?: boolean;
+  class?: string;
+}
+const {
+  eyebrowKey,
+  scriptKey,
+  titleKey,
+  align = 'center',
+  onBoard = false,
+  class: cls = '',
+} = Astro.props;
+const en = ui.en;
+---
+<div
+  class:list={[
+    'section-heading',
+    align === 'left' && 'section-heading--left',
+    onBoard && 'section-heading--board',
+    cls,
+  ]}
+>
+  {eyebrowKey && (
+    <span class="section-heading__eyebrow" data-i18n={eyebrowKey}>{en[eyebrowKey as keyof typeof en]}</span>
+  )}
+  {scriptKey && (
+    <span class="section-heading__script" data-i18n={scriptKey}>{en[scriptKey as keyof typeof en]}</span>
+  )}
+  {titleKey && (
+    <h2 class="section-heading__title" data-i18n={titleKey}>{en[titleKey as keyof typeof en]}</h2>
+  )}
+</div>

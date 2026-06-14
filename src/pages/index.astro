@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/site/Header.astro';
+import Hero from '../components/site/Hero.astro';
+import Menu from '../components/site/Menu.astro';
+import Story from '../components/site/Story.astro';
+import Gallery from '../components/site/Gallery.astro';
+import Catering from '../components/site/Catering.astro';
+import FindUs from '../components/site/FindUs.astro';
+import Social from '../components/site/Social.astro';
+import Footer from '../components/site/Footer.astro';
+import OrderUI from '../components/site/OrderUI.astro';
+import { ui, itemIndex, site, hours } from '../data/content.js';
+
+/* Payload for the client island: i18n strings, item prices, SMS number.
+   Escape "<" so it can't break out of the JSON <script>. */
+const islandData = JSON.stringify({
+  i18n: ui,
+  items: itemIndex,
+  smsNumber: site.smsNumber,
+}).replace(/</g, '\\u003c');
+
+/* Restaurant structured data for local search. */
+const DAY = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Restaurant',
+  name: 'Cesia’s Truck',
+  description:
+    'Family-owned birria food truck in Irvine, CA — quesatacos, birria pizza, and consomé.',
+  servesCuisine: 'Mexican',
+  priceRange: '$',
+  telephone: site.smsNumber,
+  url: Astro.site?.href,
+  image: Astro.site ? new URL('favicon.jpg', Astro.site).href : undefined,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    addressLocality: 'Irvine',
+    addressRegion: 'CA',
+    postalCode: '92606',
+    addressCountry: 'US',
+  },
+  openingHoursSpecification: hours.map((h) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: h.days.map((d) => DAY[d]),
+    opens: h.opens,
+    closes: h.closes,
+  })),
+  sameAs: [site.social.instagram.url, site.social.tiktok.url, site.social.yelp.url],
+}).replace(/</g, '\\u003c');
+---
+<BaseLayout>
+  <script type="application/ld+json" slot="head" is:inline set:html={jsonLd} />
+  <Header />
+  <main id="main">
+    <Hero />
+    <Menu />
+    <Story />
+    <Gallery />
+    <Catering />
+    <FindUs />
+    <Social />
+  </main>
+  <Footer />
+  <OrderUI />
+
+  <script type="application/json" id="cesia-data" is:inline set:html={islandData} />
+  <script>
+    import { initCesia } from '../scripts/app.js';
+    initCesia();
+  </script>
+</BaseLayout>

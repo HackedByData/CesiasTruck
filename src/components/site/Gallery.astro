@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import { gallery } from '../../data/content.js';
+import { images } from '../../data/images.js';
+import SectionHeading from '../ui/SectionHeading.astro';
+---
+<section class="section section--paper" id="gallery">
+  <div class="container">
+    <div class="section__head">
+      <SectionHeading eyebrowKey="gallery.eyebrow" titleKey="gallery.title" />
+    </div>
+    <div class="gallery">
+      {
+        gallery.map((g) => (
+          <figure>
+            <Image
+              src={images[g.key as keyof typeof images]}
+              alt={g.alt.en}
+              widths={[260, 420, 640]}
+              sizes="(min-width: 560px) 33vw, 50vw"
+              loading="lazy"
+            />
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

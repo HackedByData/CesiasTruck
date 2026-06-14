@@ -1,0 +1,52 @@
+---
+/**
+ * Button — the marigold/salsa call-to-action.
+ * Renders an <a> when `href` is set, otherwise a <button>.
+ * variant: primary (gold) · accent (red) · secondary (outline) · ghost · outline
+ * Use named slots `icon-left` / `icon-right` for icons.
+ */
+interface Props {
+  variant?: 'primary' | 'secondary' | 'accent' | 'ghost' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  block?: boolean;
+  onBoard?: boolean;
+  disabled?: boolean;
+  class?: string;
+  [key: string]: any;
+}
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  type = 'button',
+  block = false,
+  onBoard = false,
+  disabled = false,
+  class: cls = '',
+  ...rest
+} = Astro.props;
+
+const Tag = href ? 'a' : 'button';
+const classes = [
+  'btn',
+  `btn--${variant}`,
+  `btn--${size}`,
+  block && 'btn--block',
+  onBoard && 'btn--on-board',
+  cls,
+].filter(Boolean).join(' ');
+---
+<Tag
+  class={classes}
+  href={href}
+  type={href ? undefined : type}
+  disabled={!href && disabled ? true : undefined}
+  aria-disabled={href && disabled ? 'true' : undefined}
+  {...rest}
+>
+  <slot name="icon-left" />
+  <slot />
+  <slot name="icon-right" />
+</Tag>
