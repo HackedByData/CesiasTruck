@@ -1,0 +1,49 @@
+# Cesia's Truck
+
+> Family-owned birria food truck in Irvine, CA — "Your Favorite Taco." Slow-cooked birria, crispy quesatacos, and consomé to dip, made fresh on the truck every day. The website is a bilingual (English/Spanish) single-page marketing and menu site where customers browse the menu, build an order, and send it to the truck by text message.
+
+## About
+
+- **Business**: Cesia's Truck, a family-owned and operated birria food truck
+- **Cuisine**: Mexican (birria specialty)
+- **Location**: 2500 Alton Pkwy, Irvine, CA 92606 (permanent spot in an Irvine business park; look for the black truck with the marigold sign)
+- **Phone / Text orders**: (714) 710-6159
+- **Price range**: $ (all prices plus tax)
+- **Meats**: Birria, Asada, Chicken, Pastor, Panela
+- **Payment**: Cash and card
+
+## Hours
+
+- Monday–Friday: 9:30 AM – 8:00 PM
+- Saturday: 2:30 PM – 8:00 PM
+- Sunday: 9:30 AM – 5:30 PM
+
+## How ordering works
+
+The site has no checkout or payment system. Customers tap menu items to build an order, pick a pickup time, and the site opens a pre-filled SMS to the truck at (714) 710-6159. Prices shown are estimates; final price and availability are confirmed by phone. Dish names are kept in Spanish in both the English and Spanish versions of the site.
+
+## Menu
+
+- **Tacos**: Regulares ($3.00), Quesatacos ($3.75, crispy taco with melted cheese dipped in consomé), Dorados ($3.50), Keto Taco ($4.00, all-cheese shell), Mulita ($3.75)
+- **Especiales**: Birria Pizza ($22.00, a whole birria quesadilla cut like a pizza), Cesia Box ($25.00, the house box — quesatacos, sides, salsas & consomé), Mamalona ($36.00, big share platter), Taco Combo ($15.00), Ta'Completo ($15.50)
+- **Antojos**: Quesadilla ($10.00), Hot Cheetos Quesadilla ($12.00, stuffed with Hot Cheetos), Torta ($10.00), Burrito ($10.00), Burrito Cheese & Beans ($6.00), Delipapa ($12.00, loaded fries), Ta'Chilito ($12.00), Pepiloco ($12.00), Cheese Quesadilla ($5.00)
+- **Consomés**: Small ($4.00), Medium ($9.00), Large ($14.00), plus no-meat (vegetarian) options, and Birria Ramen ($14.00)
+- **Drinks**: Aguas Frescas ($5.00), Can Soda ($2.00), Coca 1/2 Lto. ($4.00), Mini Coca ($2.00), Agua ($1.00), Jarritos ($3.00), Monster ($3.00)
+
+## Page sections
+
+- **Hero**: intro with the featured Quesadilla ($10.00)
+- **Menu**: featured photo cards plus the full chalkboard menu, tap-to-order
+- **Our Story**: the family birria recipe, slow-braised for 6+ hours, made to order
+- **Gallery**: labeled photos of the dishes
+- **Catering**: family-size feasts and big orders (call ahead)
+- **Find Us**: location, hours, and directions
+- **Follow Along**: social links
+
+## Links
+
+- [Website](https://cesiastruck.com): the single-page site
+- [Directions](https://www.google.com/maps/dir/?api=1&destination=2500+Alton+Pkwy+Irvine+CA+92606): Google Maps to the truck
+- [Instagram](https://instagram.com/cesias_truck): @cesias_truck
+- [TikTok](https://www.tiktok.com/@cesiastruck): @cesiastruck
+- [Yelp](https://www.yelp.com/search?find_desc=cesias+truck&find_loc=Irvine%2C+CA): reviews and photos
