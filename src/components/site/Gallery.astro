@@ -12,7 +12,7 @@ import SectionHeading from '../ui/SectionHeading.astro';
     <div class="gallery">
       {
         gallery.map((g) => (
-          <figure>
+          <figure class="gallery__item">
             <Image
               src={images[g.key as keyof typeof images]}
               alt={g.alt.en}
@@ -20,6 +20,7 @@ import SectionHeading from '../ui/SectionHeading.astro';
               sizes="(min-width: 560px) 33vw, 50vw"
               loading="lazy"
             />
+            <figcaption class="gallery__label">{g.label}</figcaption>
           </figure>
         ))
       }

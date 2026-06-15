@@ -261,7 +261,7 @@ export const categories = [
     label: { en: 'Antojos', es: 'Antojos' },
     items: [
       { id: 'quesadilla', name: 'Quesadilla', price: 10.0, desc: { en: 'Flour tortilla, melted cheese & your meat.', es: 'Tortilla de harina, queso derretido y tu carne.' } },
-      { id: 'hotcheetos', name: 'Hot Cheetos Quesadilla', price: 12.0, tag: 'spicy', desc: { en: 'Crushed Hot Cheetos crust. As good as it sounds.', es: 'Costra de Hot Cheetos. Tan rica como suena.' } },
+      { id: 'hotcheetos', name: 'Hot Cheetos Quesadilla', price: 12.0, tag: 'spicy', desc: { en: 'Stuffed with Hot Cheetos. As good as it sounds.', es: 'Rellena de Hot Cheetos. Tan rica como suena.' } },
       { id: 'torta', name: 'Torta', price: 10.0, desc: { en: 'Toasted bolillo packed with meat & the works.', es: 'Bolillo tostado relleno de carne y todo.' } },
       { id: 'burrito', name: 'Burrito', price: 10.0, desc: { en: 'Big rolled flour tortilla, your meat & beans.', es: 'Burrito grande de harina, tu carne y frijoles.' } },
       { id: 'burritocb', name: 'Burrito Cheese & Beans', price: 6.0, desc: { en: 'Cheese & beans — simple and filling.', es: 'Queso y frijoles — simple y llenador.' } },
@@ -299,14 +299,17 @@ export const categories = [
   },
 ];
 
-/* ---- Gallery (keys map to imported images in the component) ---- */
+/* ---- Gallery (keys map to imported images in the component).
+   `label` is the dish name — stays the same in EN/ES, like the menu. ---- */
 export const gallery = [
-  { key: 'birriatray', alt: { en: 'Birria tacos on a tray', es: 'Tacos de birria en charola' } },
-  { key: 'quesatacos', alt: { en: 'Quesatacos with consomé', es: 'Quesatacos con consomé' } },
-  { key: 'pizza', alt: { en: 'Birria pizza', es: 'Pizza de birria' } },
-  { key: 'consome', alt: { en: 'Consomé with tacos', es: 'Consomé con tacos' } },
-  { key: 'box', alt: { en: 'Cesia box', es: 'Caja Cesia' } },
-  { key: 'tacosplate', alt: { en: 'Plate of birria tacos', es: 'Plato de tacos de birria' } },
+  { key: 'birriatray', label: 'Tacos de Birria', alt: { en: 'Birria tacos in a tray', es: 'Tacos de birria en charola' } },
+  { key: 'quesatacos', label: 'Quesatacos', alt: { en: 'Quesatacos with consomé', es: 'Quesatacos con consomé' } },
+  { key: 'pizza', label: 'Birria Pizza', alt: { en: 'Birria pizza — a whole quesadilla cut like a pizza', es: 'Pizza de birria — una quesadilla entera cortada como pizza' } },
+  { key: 'box', label: 'Cesia Box', alt: { en: 'The Cesia Box — quesatacos, sides, salsas & consomé', es: 'La caja Cesia — quesatacos, acompañantes, salsas y consomé' } },
+  { key: 'burrito', label: 'Burrito', alt: { en: 'Birria burrito', es: 'Burrito de birria' } },
+  { key: 'hotcheetos', label: 'Hot Cheetos Quesadilla', alt: { en: 'Hot Cheetos quesadilla', es: 'Quesadilla de Hot Cheetos' } },
+  { key: 'consome', label: 'Consomé', alt: { en: 'Consomé with tacos', es: 'Consomé con tacos' } },
+  { key: 'tacosplate', label: 'Tacos Dorados', alt: { en: 'Plate of birria tacos', es: 'Plato de tacos de birria' } },
 ];
 
 /* ---- Catering highlights ---- */
