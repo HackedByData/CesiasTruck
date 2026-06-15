@@ -8,6 +8,7 @@ const stats: [keyof typeof en, keyof typeof en][] = [
   ['story.stat1v', 'story.stat1'],
   ['story.stat2v', 'story.stat2'],
   ['story.stat3v', 'story.stat3'],
+  ['story.stat4v', 'story.stat4'],
 ];
 ---
 <section class="section section--raised" id="story">
@@ -15,8 +16,8 @@ const stats: [keyof typeof en, keyof typeof en][] = [
     <div class="story__media">
       <Image
         class="story__photo"
-        src={images.consome}
-        alt="Consomé and birria tacos"
+        src={images.quesadilla}
+        alt="Quesadilla from Cesia’s Truck"
         widths={[400, 640, 860]}
         sizes="(min-width: 768px) 50vw, 90vw"
         loading="lazy"
