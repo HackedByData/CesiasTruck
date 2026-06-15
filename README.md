@@ -59,11 +59,8 @@ src/
 ├─ scripts/app.js       the client island
 ├─ layouts/BaseLayout.astro
 └─ pages/
-   ├─ index.astro        the website
-   └─ design-system.astro  living style guide (tokens + component gallery)
+   └─ index.astro        the website
 ```
-
-Open **`/design-system`** to see every color, type, spacing and component spec.
 
 ## Editing the content (no code required)
 
