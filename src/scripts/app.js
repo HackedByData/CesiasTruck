@@ -1,8 +1,8 @@
 /* ============================================================
    Cesia's Truck — client island
    Language switch (auto-detect + persist), build-your-order, the
-   right-side order drawer, the pickup-time → SMS flow, the menu
-   board's category tabs, and the owner-editable location.
+   right-side order drawer, the pickup-time → SMS flow, and the menu
+   board's category tabs.
 
    Reads its data from <script type="application/json" id="cesia-data">.
    ============================================================ */
@@ -237,30 +237,6 @@ export function initCesia() {
     );
   }
 
-  /* ---------- editable "where we are today" ---------- */
-  let editing = false;
-  function toggleToday() {
-    const el = $('#today-where');
-    const label = $('#today-edit-label');
-    if (!el) return;
-    editing = !editing;
-    el.contentEditable = String(editing);
-    if (editing) {
-      el.focus();
-      const sel = window.getSelection();
-      if (sel && sel.selectAllChildren) sel.selectAllChildren(el);
-      if (label) label.textContent = t('loc.done');
-    } else {
-      if (label) label.textContent = t('loc.edit');
-      save('cesia_today', el.textContent.trim());
-      const s = $('#today-saved');
-      if (s) {
-        s.classList.add('is-visible');
-        setTimeout(() => s.classList.remove('is-visible'), 1600);
-      }
-    }
-  }
-
   /* ---------- "today" highlight on the hours rows ---------- */
   function markToday() {
     const today = new Date().getDay();
@@ -322,9 +298,6 @@ export function initCesia() {
       const close = target.closest('[data-act="close-sheet"]');
       if (close) return closeSheet();
 
-      const edit = target.closest('#today-edit');
-      if (edit) return toggleToday();
-
       const step = target.closest('[data-act="inc"],[data-act="dec"]');
       if (step) return setQty(step.getAttribute('data-id'), step.getAttribute('data-act') === 'inc' ? 1 : -1);
 
@@ -347,12 +320,6 @@ export function initCesia() {
     const o = JSON.parse(read('cesia_order') || 'null');
     if (o && typeof o === 'object') order = o;
   } catch { /* ignore */ }
-
-  const td = read('cesia_today');
-  if (td) {
-    const el = $('#today-where');
-    if (el) el.textContent = td;
-  }
 
   const stored = read('cesia_lang');
   if (stored === 'en' || stored === 'es') lang = stored;

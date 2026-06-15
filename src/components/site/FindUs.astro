@@ -17,13 +17,8 @@ const en = ui.en;
         <div class="today__lbl">
           <Icon name="navigation" size={16} />
           <span data-i18n="loc.todayLabel">{en['loc.todayLabel']}</span>
-          <span class="today__saved eyebrow" id="today-saved" data-i18n="loc.saved">{en['loc.saved']}</span>
         </div>
-        <div class="today__where" id="today-where" spellcheck="false">{site.address.full}</div>
-        <button class="today__edit" id="today-edit" type="button">
-          <Icon name="pencil" size={14} />
-          <span id="today-edit-label" data-i18n="loc.edit">{en['loc.edit']}</span>
-        </button>
+        <div class="today__where">{site.address.full}</div>
       </div>
 
       <div class="find__cols">

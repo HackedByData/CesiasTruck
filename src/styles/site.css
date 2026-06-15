@@ -246,12 +246,7 @@
 }
 .today__lbl { display: flex; align-items: center; gap: 8px; font-family: var(--font-menu); font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; font-size: 13px; color: var(--marigold-200); margin-bottom: 8px; }
 .today__lbl .icon { width: 16px; height: 16px; flex: none; }
-.today__saved { margin-left: auto; color: var(--brand); opacity: 0; transition: opacity var(--dur-slow) var(--ease-out); }
-.today__saved.is-visible { opacity: 1; }
-.today__where { font-family: var(--font-display); text-transform: uppercase; font-size: 24px; line-height: 1.05; color: #fff; outline: none; border-radius: 8px; padding: 2px 4px; margin: 0 -4px; }
-.today__where:focus { background: rgba(255, 255, 255, 0.12); box-shadow: 0 0 0 2px var(--brand); }
-.today__edit { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; background: rgba(0, 0, 0, 0.25); color: #fce9c4; font-family: var(--font-menu); font-weight: 700; letter-spacing: 0.04em; font-size: 13px; text-transform: uppercase; padding: 7px 12px; border-radius: var(--radius-pill); min-height: 38px; }
-.today__edit .icon { width: 14px; height: 14px; }
+.today__where { font-family: var(--font-display); text-transform: uppercase; font-size: 24px; line-height: 1.05; color: #fff; }
 .find__cols { display: grid; grid-template-columns: 1fr; gap: 24px; margin-bottom: 26px; }
 .find__group-title { display: flex; align-items: center; gap: 8px; color: var(--marigold-300); margin-bottom: 12px; }
 .find__group-title .icon { width: 18px; height: 18px; }
